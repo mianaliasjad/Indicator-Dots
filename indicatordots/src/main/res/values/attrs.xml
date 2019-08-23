@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="IndicatorDots">
+        <attr name="pinLength" format="integer" />
+        <attr name="dotColor" format="color" />
+        <attr name="dotDiameter" format="dimension" />
+        <attr name="dotSpacing" format="dimension" />
+
+        <attr name="indicatorType" format="enum">
+            <enum name="fill" value="1" />
+            <enum name="fillWithAnimation" value="2" />
+        </attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="CircleView">
+        <attr name="dot_color" />
+    </declare-styleable>
+
+
+</resources>
