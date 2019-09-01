@@ -4,6 +4,7 @@ package com.gamemalt.indicatordots;
 import android.animation.LayoutTransition;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
@@ -63,7 +64,7 @@ public class IndicatorDots extends LinearLayout {
 
             mInitialPinLength = typedArray.getInt(R.styleable.IndicatorDots_pinLength, DEFAULT_PIN_LENGTH);
             mIndicatorType = typedArray.getInt(R.styleable.IndicatorDots_indicatorType, IndicatorType.FILL_WITH_ANIMATION);
-            mDotColor = typedArray.getColor(R.styleable.IndicatorDots_dotColor, getResources().getColor(R.color.dots_defaultColor));
+            mDotColor = typedArray.getColor(R.styleable.IndicatorDots_dotColor, Color.BLACK);
         } finally {
             typedArray.recycle();
         }

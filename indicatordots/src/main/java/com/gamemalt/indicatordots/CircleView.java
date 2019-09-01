@@ -3,6 +3,7 @@ package com.gamemalt.indicatordots;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
@@ -24,7 +25,7 @@ public class CircleView extends View {
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CircleView);
         try {
-            dotColor = typedArray.getColor(R.styleable.CircleView_dot_color, getContext().getResources().getColor(R.color.white));
+            dotColor = typedArray.getColor(R.styleable.CircleView_dot_color, Color.WHITE);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
