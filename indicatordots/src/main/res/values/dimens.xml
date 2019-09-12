@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <!--indicatorDots-->
-    <dimen name="dot_diameter">12dp</dimen>
-    <dimen name="dot_spacing">5dp</dimen>
-</resources>

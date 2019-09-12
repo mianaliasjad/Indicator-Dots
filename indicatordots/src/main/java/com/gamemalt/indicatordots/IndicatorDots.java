@@ -3,9 +3,11 @@ package com.gamemalt.indicatordots;
 
 import android.animation.LayoutTransition;
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
@@ -16,6 +18,8 @@ import androidx.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Stack;
+
+import com.gamemalt.circleview.CircleView;
 import com.gamemalt.indicatordots.R;
 
 
@@ -59,8 +63,8 @@ public class IndicatorDots extends LinearLayout {
 
 
         try {
-            mDotDiameter = (int) typedArray.getDimension(R.styleable.IndicatorDots_dotDiameter, getResources().getDimension(R.dimen.dot_diameter));
-            mDotSpacing = (int) typedArray.getDimension(R.styleable.IndicatorDots_dotSpacing, getResources().getDimension(R.dimen.dot_spacing));
+            mDotDiameter = (int) typedArray.getDimension(R.styleable.IndicatorDots_dotDiameter, dpToPx(getContext(),12));
+            mDotSpacing = (int) typedArray.getDimension(R.styleable.IndicatorDots_dotSpacing, dpToPx(getContext(),5));
 
             mInitialPinLength = typedArray.getInt(R.styleable.IndicatorDots_pinLength, DEFAULT_PIN_LENGTH);
             mIndicatorType = typedArray.getInt(R.styleable.IndicatorDots_indicatorType, IndicatorType.FILL_WITH_ANIMATION);
@@ -108,7 +112,7 @@ public class IndicatorDots extends LinearLayout {
 
     private CircleView getOneDot() {
         final CircleView circleView1 = new CircleView(getContext());
-        circleView1.setDotColor(mDotColor);
+        circleView1.setCircleColor(mDotColor);
         LayoutParams params = new LayoutParams(mDotDiameter,
                 mDotDiameter);
         params.setMargins(mDotSpacing, 0, mDotSpacing, 0);
@@ -252,7 +256,6 @@ public class IndicatorDots extends LinearLayout {
     }
 
 
-
     public void setWidth(int widthPx) {
         this.getLayoutParams().width = widthPx;
     }
@@ -319,4 +322,16 @@ public class IndicatorDots extends LinearLayout {
     public void setIndicatorType(@IndicatorType int type) {
         mIndicatorType = type;
     }
+
+
+    /**
+     * @param context activity
+     * @param dp       value in dps
+     * @return convert dps into equivalent pixels
+     */
+    private int dpToPx(Context context, int dp) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+    }
+
 }

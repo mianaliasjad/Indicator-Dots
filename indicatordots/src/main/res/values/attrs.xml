@@ -14,9 +14,4 @@
 
     </declare-styleable>
 
-    <declare-styleable name="CircleView">
-        <attr name="dot_color" />
-    </declare-styleable>
-
-
 </resources>
