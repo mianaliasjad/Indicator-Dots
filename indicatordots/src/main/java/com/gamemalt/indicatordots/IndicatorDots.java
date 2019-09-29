@@ -264,6 +264,7 @@ public class IndicatorDots extends LinearLayout {
 
     public void resetDots() {
         removeAllViews();
+        stack.clear();
     }
 
     public void resetDotsWithAnim() {
