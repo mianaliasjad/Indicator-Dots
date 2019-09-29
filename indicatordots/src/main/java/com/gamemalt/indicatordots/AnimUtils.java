@@ -18,8 +18,9 @@ class AnimUtils {
     /***
      * anim for making view dis appearing
      ***/
-    static ScaleAnimation disAppearingAnim(int duration) {
-        ScaleAnimation scaleAnimation = new ScaleAnimation(1, 0, 1, 0, ScaleAnimation.RELATIVE_TO_SELF, 1f, ScaleAnimation.RELATIVE_TO_SELF, .5f);
+    static ScaleAnimation disAppearingAnim(int duration,boolean shouldDisappearToCenter) {
+        float to=shouldDisappearToCenter? 0.5f : 1f;
+        ScaleAnimation scaleAnimation = new ScaleAnimation(1, 0, 1, 0, ScaleAnimation.RELATIVE_TO_SELF, to, ScaleAnimation.RELATIVE_TO_SELF, .5f);
         scaleAnimation.setDuration(duration);
         return scaleAnimation;
     }

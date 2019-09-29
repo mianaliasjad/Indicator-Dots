@@ -216,9 +216,11 @@ public class IndicatorDots extends LinearLayout {
     public void decrementDot() {
 
         if (!stack.isEmpty()) {
+            //so that last dot disappear at the center
+            final ScaleAnimation scaleAnimation = AnimUtils.disAppearingAnim(130,stack.size()==1);
+
             final View v = stack.pop();
 
-            final ScaleAnimation scaleAnimation = AnimUtils.disAppearingAnim(130);
             scaleAnimation.setFillEnabled(true);
             scaleAnimation.setFillAfter(true);
             scaleAnimation.setAnimationListener(new Animation.AnimationListener() {
